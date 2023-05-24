@@ -7,10 +7,19 @@
   <title>Document</title>
 </head>
 <body>
-  <form action="/login">
+  <form action="/login" id="form">
   <label for="name">데이터</label>
   <input type="text" name="id" id="name">
   <input type="button" value="전송" id="button">
   </form>
 </body>
+<script>
+  document.getElementById("button").addEventListener("click", ()=> {
+    let form = document.getElementById("form");
+    let formData = new FormData(form);
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", form.action, true);
+    xhr.send(formData);
+  })
+</script>
 </html>
